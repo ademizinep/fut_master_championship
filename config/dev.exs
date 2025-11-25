@@ -2,8 +2,8 @@ import Config
 
 # Configure your database
 config :fut_master_championship, FutMasterChampionship.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "ademir",
+  password: "12345678",
   hostname: "localhost",
   database: "fut_master_championship_dev",
   stacktrace: true,

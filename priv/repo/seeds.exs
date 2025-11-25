@@ -9,3 +9,10 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias FutMasterChampionship.Repo
+alias FutMasterChampionship.People.Person
+
+for _ <- 1..10 do
+  Repo.insert!(%Person{name: Faker.Person.name(), email: Faker.Internet.safe_email()})
+end
