@@ -1,4 +1,4 @@
-defmodule FutMasterChampionship.States.State do
+defmodule FutMasterChampionship.Countries.State do
   use Ecto.Schema
   import Ecto.Changeset
 

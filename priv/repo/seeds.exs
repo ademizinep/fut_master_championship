@@ -14,7 +14,7 @@ alias FutMasterChampionship.Repo
 alias FutMasterChampionship.People.Person
 alias FutMasterChampionship.Sports.Team
 alias FutMasterChampionship.Countries.Country
-alias FutMasterChampionship.States.State
+alias FutMasterChampionship.Countries.State
 alias FutMasterChampionship.Data.Teams
 
 countries = [
