@@ -110,4 +110,132 @@ defmodule FutMasterChampionship.SportsTest do
       assert %Ecto.Changeset{} = Sports.change_state_league(state_league)
     end
   end
+
+  describe "national_championships" do
+    alias FutMasterChampionship.Sports.NationalChampionship
+
+    import FutMasterChampionship.SportsFixtures
+
+    @invalid_attrs %{active: nil, name: nil, year: nil, edition: nil, start_date: nil, end_date: nil}
+
+    test "list_national_championships/0 returns all national_championships" do
+      national_championship = national_championship_fixture()
+      assert Sports.list_national_championships() == [national_championship]
+    end
+
+    test "get_national_championship!/1 returns the national_championship with given id" do
+      national_championship = national_championship_fixture()
+      assert Sports.get_national_championship!(national_championship.id) == national_championship
+    end
+
+    test "create_national_championship/1 with valid data creates a national_championship" do
+      valid_attrs = %{active: true, name: "some name", year: 42, edition: "some edition", start_date: ~D[2025-11-25], end_date: ~D[2025-11-25]}
+
+      assert {:ok, %NationalChampionship{} = national_championship} = Sports.create_national_championship(valid_attrs)
+      assert national_championship.active == true
+      assert national_championship.name == "some name"
+      assert national_championship.year == 42
+      assert national_championship.edition == "some edition"
+      assert national_championship.start_date == ~D[2025-11-25]
+      assert national_championship.end_date == ~D[2025-11-25]
+    end
+
+    test "create_national_championship/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Sports.create_national_championship(@invalid_attrs)
+    end
+
+    test "update_national_championship/2 with valid data updates the national_championship" do
+      national_championship = national_championship_fixture()
+      update_attrs = %{active: false, name: "some updated name", year: 43, edition: "some updated edition", start_date: ~D[2025-11-26], end_date: ~D[2025-11-26]}
+
+      assert {:ok, %NationalChampionship{} = national_championship} = Sports.update_national_championship(national_championship, update_attrs)
+      assert national_championship.active == false
+      assert national_championship.name == "some updated name"
+      assert national_championship.year == 43
+      assert national_championship.edition == "some updated edition"
+      assert national_championship.start_date == ~D[2025-11-26]
+      assert national_championship.end_date == ~D[2025-11-26]
+    end
+
+    test "update_national_championship/2 with invalid data returns error changeset" do
+      national_championship = national_championship_fixture()
+      assert {:error, %Ecto.Changeset{}} = Sports.update_national_championship(national_championship, @invalid_attrs)
+      assert national_championship == Sports.get_national_championship!(national_championship.id)
+    end
+
+    test "delete_national_championship/1 deletes the national_championship" do
+      national_championship = national_championship_fixture()
+      assert {:ok, %NationalChampionship{}} = Sports.delete_national_championship(national_championship)
+      assert_raise Ecto.NoResultsError, fn -> Sports.get_national_championship!(national_championship.id) end
+    end
+
+    test "change_national_championship/1 returns a national_championship changeset" do
+      national_championship = national_championship_fixture()
+      assert %Ecto.Changeset{} = Sports.change_national_championship(national_championship)
+    end
+  end
+
+  describe "state_championships" do
+    alias FutMasterChampionship.Sports.StateChampionship
+
+    import FutMasterChampionship.SportsFixtures
+
+    @invalid_attrs %{active: nil, name: nil, year: nil, edition: nil, start_date: nil, end_date: nil}
+
+    test "list_state_championships/0 returns all state_championships" do
+      state_championship = state_championship_fixture()
+      assert Sports.list_state_championships() == [state_championship]
+    end
+
+    test "get_state_championship!/1 returns the state_championship with given id" do
+      state_championship = state_championship_fixture()
+      assert Sports.get_state_championship!(state_championship.id) == state_championship
+    end
+
+    test "create_state_championship/1 with valid data creates a state_championship" do
+      valid_attrs = %{active: true, name: "some name", year: 42, edition: "some edition", start_date: ~D[2025-11-25], end_date: ~D[2025-11-25]}
+
+      assert {:ok, %StateChampionship{} = state_championship} = Sports.create_state_championship(valid_attrs)
+      assert state_championship.active == true
+      assert state_championship.name == "some name"
+      assert state_championship.year == 42
+      assert state_championship.edition == "some edition"
+      assert state_championship.start_date == ~D[2025-11-25]
+      assert state_championship.end_date == ~D[2025-11-25]
+    end
+
+    test "create_state_championship/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Sports.create_state_championship(@invalid_attrs)
+    end
+
+    test "update_state_championship/2 with valid data updates the state_championship" do
+      state_championship = state_championship_fixture()
+      update_attrs = %{active: false, name: "some updated name", year: 43, edition: "some updated edition", start_date: ~D[2025-11-26], end_date: ~D[2025-11-26]}
+
+      assert {:ok, %StateChampionship{} = state_championship} = Sports.update_state_championship(state_championship, update_attrs)
+      assert state_championship.active == false
+      assert state_championship.name == "some updated name"
+      assert state_championship.year == 43
+      assert state_championship.edition == "some updated edition"
+      assert state_championship.start_date == ~D[2025-11-26]
+      assert state_championship.end_date == ~D[2025-11-26]
+    end
+
+    test "update_state_championship/2 with invalid data returns error changeset" do
+      state_championship = state_championship_fixture()
+      assert {:error, %Ecto.Changeset{}} = Sports.update_state_championship(state_championship, @invalid_attrs)
+      assert state_championship == Sports.get_state_championship!(state_championship.id)
+    end
+
+    test "delete_state_championship/1 deletes the state_championship" do
+      state_championship = state_championship_fixture()
+      assert {:ok, %StateChampionship{}} = Sports.delete_state_championship(state_championship)
+      assert_raise Ecto.NoResultsError, fn -> Sports.get_state_championship!(state_championship.id) end
+    end
+
+    test "change_state_championship/1 returns a state_championship changeset" do
+      state_championship = state_championship_fixture()
+      assert %Ecto.Changeset{} = Sports.change_state_championship(state_championship)
+    end
+  end
 end

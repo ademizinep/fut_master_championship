@@ -31,4 +31,42 @@ defmodule FutMasterChampionship.SportsFixtures do
 
     state_league
   end
+
+  @doc """
+  Generate a national_championship.
+  """
+  def national_championship_fixture(attrs \\ %{}) do
+    {:ok, national_championship} =
+      attrs
+      |> Enum.into(%{
+        active: true,
+        edition: "some edition",
+        end_date: ~D[2025-11-25],
+        name: "some name",
+        start_date: ~D[2025-11-25],
+        year: 42
+      })
+      |> FutMasterChampionship.Sports.create_national_championship()
+
+    national_championship
+  end
+
+  @doc """
+  Generate a state_championship.
+  """
+  def state_championship_fixture(attrs \\ %{}) do
+    {:ok, state_championship} =
+      attrs
+      |> Enum.into(%{
+        active: true,
+        edition: "some edition",
+        end_date: ~D[2025-11-25],
+        name: "some name",
+        start_date: ~D[2025-11-25],
+        year: 42
+      })
+      |> FutMasterChampionship.Sports.create_state_championship()
+
+    state_championship
+  end
 end
