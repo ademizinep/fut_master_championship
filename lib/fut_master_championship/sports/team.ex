@@ -1,4 +1,4 @@
-defmodule FutMasterChampionship.Teams.Team do
+defmodule FutMasterChampionship.Sports.Team do
   use Ecto.Schema
   import Ecto.Changeset
 

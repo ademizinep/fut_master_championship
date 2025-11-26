@@ -1,5 +1,5 @@
 defmodule FutMasterChampionshipWeb.TeamJSON do
-  alias FutMasterChampionship.Teams.Team
+  alias FutMasterChampionship.Sports.Team
 
   def index(%{teams: teams}) do
     %{data: for(team <- teams, do: data(team))}

@@ -12,7 +12,7 @@
 
 alias FutMasterChampionship.Repo
 alias FutMasterChampionship.People.Person
-alias FutMasterChampionship.Teams.Team
+alias FutMasterChampionship.Sports.Team
 alias FutMasterChampionship.Countries.Country
 alias FutMasterChampionship.States.State
 alias FutMasterChampionship.Data.Teams

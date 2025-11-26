@@ -6,7 +6,7 @@ defmodule FutMasterChampionship.People.Person do
     field :name, :string
     field :email, :string
 
-    belongs_to :team, FutMasterChampionship.Teams.Team
+    belongs_to :team, FutMasterChampionship.Sports.Team
 
     timestamps(type: :utc_datetime)
   end
