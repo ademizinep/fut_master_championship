@@ -9,6 +9,9 @@ defmodule FutMasterChampionshipWeb.Router do
     pipe_through :api
 
     resources "/people", PersonController, except: [:new, :edit]
+    resources "/teams", TeamController, only: [:index, :show]
+    resources "/countries", CountryController, only: [:index, :show]
+    resources "/states", StateController, only: [:index, :show]
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

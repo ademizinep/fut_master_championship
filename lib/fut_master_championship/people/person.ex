@@ -6,6 +6,8 @@ defmodule FutMasterChampionship.People.Person do
     field :name, :string
     field :email, :string
 
+    belongs_to :team, FutMasterChampionship.Teams.Team
+
     timestamps(type: :utc_datetime)
   end
 
@@ -18,6 +20,7 @@ defmodule FutMasterChampionship.People.Person do
     |> validate_length(:name, min: 3)
     |> validate_length(:email, min: 3)
     |> validate_length(:email, max: 255)
-    |> unique_constraint(:email)
+    |> unique_constraint([:email, :team_id])
+    |> assoc_constraint(:team)
   end
 end
