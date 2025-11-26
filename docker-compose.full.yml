@@ -1,0 +1,53 @@
+services:
+  app:
+    build:
+      args:
+        ARG_LINUX_LOCALE: en_US.UTF-8
+        ARG_USER_UID: ${ARG_USER_UID}
+        ARG_USER_GID: ${ARG_USER_GID}
+        ARG_ELIXIR_VERSION: 1.15.7
+      context: .
+      dockerfile: Dockerfile.full
+    depends_on:
+      - postgres
+    working_dir: /home/user/fut_master_championship
+    environment:
+      PORT: 4000
+      POSTGRES_USERNAME: username
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DATABASE: fut_master_championship_development
+      DATABASE_URL: postgresql://username:password@postgres:5432/fut_master_championship_development
+    extra_hosts:
+      - dockerhost:host-gateway
+    ports:
+      - 4000:4000
+    tty: true
+    volumes:
+      - app:/usr/local
+      - ~/.ssh:/home/user/.ssh
+      - ~/.gitconfig:/home/user/.gitconfig
+      - ~/.bash_history:/home/user/.bash_history
+      - ./devops/auto_scp:/home/auto_scp
+      - ./:/home/user/fut_master_championship
+  postgres:
+    image: postgres:16.0
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: fut_master_championship_development
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - 5434:5432
+  cloudbeaver:
+    image: dbeaver/cloudbeaver:23
+    ports:
+      - 8980:8978
+    volumes:
+      - cloudbeaver:/opt/cloudbeaver/workspace
+volumes:
+  app:
+  postgres:
+  cloudbeaver:

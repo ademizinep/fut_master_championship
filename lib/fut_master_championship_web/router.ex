@@ -7,6 +7,8 @@ defmodule FutMasterChampionshipWeb.Router do
 
   scope "/api", FutMasterChampionshipWeb do
     pipe_through :api
+
+    resources "/people", PersonController, except: [:new, :edit]
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
