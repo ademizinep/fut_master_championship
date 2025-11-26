@@ -4,8 +4,10 @@ defmodule FutMasterChampionship.Teams.Team do
 
   schema "teams" do
     field :name, :string
+    field :acronym, :string
 
     has_many :people, FutMasterChampionship.People.Person
+    belongs_to :state, FutMasterChampionship.States.State
 
     timestamps(type: :utc_datetime)
   end
@@ -13,8 +15,10 @@ defmodule FutMasterChampionship.Teams.Team do
   @doc false
   def changeset(team, attrs) do
     team
-    |> cast(attrs, [:name])
-    |> validate_required([:name])
+    |> cast(attrs, [:name, :acronym, :state_id])
+    |> validate_required([:name, :acronym, :state_id])
+    |> foreign_key_constraint(:state_id)
+    |> assoc_constraint(:state)
     |> unique_constraint(:name)
   end
 end

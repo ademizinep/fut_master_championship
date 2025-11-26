@@ -15,14 +15,7 @@ alias FutMasterChampionship.People.Person
 alias FutMasterChampionship.Teams.Team
 alias FutMasterChampionship.Countries.Country
 alias FutMasterChampionship.States.State
-
-for i <- 1..200 do
-  Repo.insert!(%Team{name: "#{Faker.Company.name()} - #{i}"})
-end
-
-for i <- 1..10 do
-    Repo.insert!(%Person{name: Faker.Person.name(), email: Faker.Internet.safe_email(), team_id: i})
-end
+alias FutMasterChampionship.Data.Teams
 
 countries = [
   { "Brasil", "BR" }
@@ -62,6 +55,20 @@ states = [
   { "Tocantins", "TO", "Região Norte" }
 ]
 
-for { name, acronym } <- states do
-  Repo.insert!(%State{name: name, acronym: acronym, country_id: 1})
+for { name, acronym, region} <- states do
+  Repo.insert!(%State{name: name, acronym: acronym, region: region, country_id: 1})
+end
+
+acronyms = Enum.map(states, fn { _, acronym, _ } -> acronym end)
+for state_acronym <- acronyms do
+  teams = Teams.by_state(state_acronym)
+  for %{name: name, acronym: acronym} <- teams do
+    IO.inspect(name)
+    IO.inspect(acronym)
+    Repo.insert!(%Team{name: name, acronym: acronym, state_id: Repo.get_by!(State, acronym: state_acronym).id})
+  end
+end
+
+for i <- 1..10 do
+  Repo.insert!(%Person{name: Faker.Person.name(), email: Faker.Internet.safe_email(), team_id: i})
 end

@@ -2,7 +2,6 @@ defmodule FutMasterChampionshipWeb.TeamController do
   use FutMasterChampionshipWeb, :controller
 
   alias FutMasterChampionship.Teams
-  alias FutMasterChampionship.Teams.Team
 
   action_fallback FutMasterChampionshipWeb.FallbackController
 

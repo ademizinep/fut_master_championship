@@ -21,6 +21,7 @@ defmodule FutMasterChampionship.People.Person do
     |> validate_length(:email, min: 3)
     |> validate_length(:email, max: 255)
     |> unique_constraint([:email, :team_id])
+    |> foreign_key_constraint(:team_id)
     |> assoc_constraint(:team)
   end
 end

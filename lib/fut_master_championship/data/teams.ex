@@ -35,7 +35,7 @@ defmodule FutMasterChampionship.Data.Teams do
       %{name: "Atlético Central Forte", acronym: "ACF"},
       %{name: "Nação Esportiva Prime", acronym: "NEP"},
       %{name: "Força Livre Atlético", acronym: "FLA"},
-      %{name: "Esporte Clube Alto Impacto", acronym: "ECAI"},
+      %{name: "Esporte Clube Alto Impacto de Alagoas", acronym: "ECAI"},
       %{name: "Primeiro Esporte Master", acronym: "PEM"}
     ],
     "AP" => [
@@ -64,7 +64,7 @@ defmodule FutMasterChampionship.Data.Teams do
       %{name: "União Imperial Esporte", acronym: "UIE"},
       %{name: "Futebol Clube Nova Era", acronym: "FCNE"},
       %{name: "Império Total Esporte", acronym: "ITE"},
-      %{name: "Atlético Nova União", acronym: "ANU"},
+      %{name: "Atlético Nova União do Amazonas", acronym: "ANU"},
       %{name: "Gladiador Esporte Clube", acronym: "GEC"},
       %{name: "Clube Esportivo Suprema Força", acronym: "CESF"},
       %{name: "Poder Atlético Nacional", acronym: "PAN"},
@@ -73,7 +73,7 @@ defmodule FutMasterChampionship.Data.Teams do
       %{name: "Grêmio Máxima Energia", acronym: "GME"}
     ],
     "BA" => [
-      %{name: "Atlético União Forte", acronym: "AUF"},
+      %{name: "Atlético União Forte da Bahia", acronym: "AUF"},
       %{name: "Clube Real Continental", acronym: "CRC"},
       %{name: "Força Atlética Nacional", acronym: "FAN"},
       %{name: "Esporte Clube Ascensão", acronym: "ECA"},
@@ -90,7 +90,7 @@ defmodule FutMasterChampionship.Data.Teams do
       %{name: "Real Soberano Clube", acronym: "RSC"}
     ],
     "CE" => [
-      %{name: "Atlético União Nordeste", acronym: "AUN"},
+      %{name: "Atlético União Nordeste do Ceará", acronym: "AUN"},
       %{name: "Esporte Clube Força Livre", acronym: "ECFL"},
       %{name: "Real Potência Clube", acronym: "RPC"},
       %{name: "Grêmio Nova Atitude", acronym: "GNA"},
@@ -103,7 +103,7 @@ defmodule FutMasterChampionship.Data.Teams do
       %{name: "Futebol Clube Reação Total", acronym: "FCRT"},
       %{name: "Atlético Vento Norte", acronym: "AVN"},
       %{name: "Clube Força Integral", acronym: "CFI"},
-      %{name: "Elite Brasil Atlético", acronym: "EBA"},
+      %{name: "Elite Brasil Atlético do Ceará", acronym: "EBA"},
       %{name: "Suprema União Clube", acronym: "SUC"}
     ],
     "DF" => [
@@ -112,7 +112,7 @@ defmodule FutMasterChampionship.Data.Teams do
       %{name: "Nacional Vanguarda Futebol", acronym: "NVF"},
       %{name: "Atlético Suprema Ordem", acronym: "ASO"},
       %{name: "Clube Federal de Esportes", acronym: "CFE"},
-      %{name: "Primeiro Esporte Real", acronym: "PER"},
+      %{name: "Primeiro Esporte Real do Distrito Federal", acronym: "PER"},
       %{name: "Império Nacional Federal", acronym: "INF"},
       %{name: "Elite União Metropolitano", acronym: "EUM"},
       %{name: "Real Progresso Atlético", acronym: "RPA"},
@@ -132,7 +132,7 @@ defmodule FutMasterChampionship.Data.Teams do
       %{name: "Real Impacto Clube", acronym: "RIC"},
       %{name: "Suprema União Esportiva", acronym: "SUE"},
       %{name: "Atlético Nova Classe", acronym: "ANC"},
-      %{name: "Esporte Clube Alto Desempenho", acronym: "ECAD"},
+      %{name: "Esporte Clube Alto Desempenho do Espírito Santo", acronym: "ECAD"},
       %{name: "Prime Futebol Total", acronym: "PFT"},
       %{name: "União Real Master", acronym: "URM"},
       %{name: "Clube Nacional Harmonia", acronym: "CNH"},
@@ -150,7 +150,7 @@ defmodule FutMasterChampionship.Data.Teams do
       %{name: "Esporte Clube Norte Forte", acronym: "ECNF"},
       %{name: "Supremacia Futebol Clube", acronym: "SFC"},
       %{name: "Projeção Nacional Atlético", acronym: "PNA"},
-      %{name: "Futebol Clube Nova Linha", acronym: "FCNL"},
+      %{name: "Futebol Clube Nova Linha de Goiás", acronym: "FCNL"},
       %{name: "Atitude Esporte Clube", acronym: "AEC"},
       %{name: "Ascensão Atlético Brasil", acronym: "AAB"},
       %{name: "Clube União Vitoriosa", acronym: "CUV"},
@@ -158,10 +158,10 @@ defmodule FutMasterChampionship.Data.Teams do
       %{name: "Atlético Horizonte Verde", acronym: "AHV"}
     ],
     "MA" => [
-      %{name: "Atlético Nova União", acronym: "ANU"},
+      %{name: "Atlético Nova União do Maranhão", acronym: "ANU"},
       %{name: "Esporte Clube Litoral Forte", acronym: "ECLF"},
       %{name: "Nacional Atlética Brasil", acronym: "NAB"},
-      %{name: "Primeiro Clube Avante", acronym: "PCA"},
+      %{name: "Primeiro Clube Avante do Maranhão", acronym: "PCA"},
       %{name: "Real União Marítima", acronym: "RUM"},
       %{name: "Grêmio Força do Norte", acronym: "GFN"},
       %{name: "Elite Atlética Nacional", acronym: "EAN"},
@@ -215,7 +215,7 @@ defmodule FutMasterChampionship.Data.Teams do
       %{name: "Primeiro Clube Horizonte", acronym: "PCH"},
       %{name: "Força Livre Nacional", acronym: "FLN"},
       %{name: "Clube Atlético Majestoso", acronym: "CAMJ"},
-      %{name: "União Máxima Brasil", acronym: "UMB"},
+      %{name: "União Máxima Brasil de Minas Gerais", acronym: "UMB"},
       %{name: "Grêmio Nova Identidade", acronym: "GNI"},
       %{name: "Suprema Energia Clube", acronym: "SEC"},
       %{name: "Atlético Nacional Avante", acronym: "ANA"},
@@ -237,7 +237,7 @@ defmodule FutMasterChampionship.Data.Teams do
       %{name: "Futebol Clube Nova Ordem", acronym: "FCNO"},
       %{name: "Grêmio Força Amazônica", acronym: "GFA"},
       %{name: "Projeção Esporte Total", acronym: "PET"},
-      %{name: "Supremo Atlético Nacional", acronym: "SAN"},
+      %{name: "Supremo Atlético Nacional do Pará", acronym: "SAN"},
       %{name: "Esporte Clube Integração Forte", acronym: "ECIF"},
       %{name: "Atlético Norte Unido", acronym: "ANU"},
       %{name: "Clube Vanguarda Brasileira", acronym: "CVB"}
@@ -249,8 +249,8 @@ defmodule FutMasterChampionship.Data.Teams do
       %{name: "Força Total Atlético", acronym: "FTA"},
       %{name: "Primeiro União Nordeste", acronym: "PUN"},
       %{name: "Nacional Clube de Avanço", acronym: "NCA"},
-      %{name: "Esporte Clube Alto Impacto", acronym: "ECAI"},
-      %{name: "Elite Brasil Atlético", acronym: "EBA"},
+      %{name: "Esporte Clube Alto Impacto da Paraíba", acronym: "ECAI"},
+      %{name: "Elite Brasil Atlético da Paraíba", acronym: "EBA"},
       %{name: "União Prime Futebol", acronym: "UPF"},
       %{name: "Suprema Energia Esportiva", acronym: "SEE"},
       %{name: "Grêmio Nova Base", acronym: "GNB"},
@@ -277,11 +277,11 @@ defmodule FutMasterChampionship.Data.Teams do
       %{name: "Atlético Integração Forte", acronym: "AIF"}
     ],
     "PE" => [
-      %{name: "Atlético União Nordeste", acronym: "AUN"},
+      %{name: "Atlético União Nordeste de Pernambuco", acronym: "AUN"},
       %{name: "Real Imperial Clube", acronym: "RIC"},
       %{name: "Nacional Atlética Pernambucana", acronym: "NAP"},
       %{name: "Clube Energia Suprema", acronym: "CES"},
-      %{name: "Primeiro Esporte Real", acronym: "PER"},
+      %{name: "Primeiro Esporte Real de Pernambuco", acronym: "PER"},
       %{name: "Grêmio Alto Impacto", acronym: "GAI"},
       %{name: "Suprema Linha Esportiva", acronym: "SLE"},
       %{name: "Futebol Clube Independência Norte", acronym: "FCIN"},
@@ -319,7 +319,7 @@ defmodule FutMasterChampionship.Data.Teams do
       %{name: "Grêmio Energia Total", acronym: "GET"},
       %{name: "Atlético Horizonte Livre", acronym: "AHL"},
       %{name: "Futebol Clube Progresso Real", acronym: "FCPR"},
-      %{name: "União Máxima Brasil", acronym: "UMB"},
+      %{name: "União Máxima Brasil do Rio de Janeiro", acronym: "UMB"},
       %{name: "Real Futuro Atlético", acronym: "RFA"},
       %{name: "Clube Nobre Esportivo", acronym: "CNE"},
       %{name: "Esporte Clube Avante Sul", acronym: "ECAS"},
@@ -358,7 +358,7 @@ defmodule FutMasterChampionship.Data.Teams do
       %{name: "Futebol Clube Nova União", acronym: "FCNU"},
       %{name: "Clube Essência Esportiva", acronym: "CEE"},
       %{name: "Elite Progresso Atlético", acronym: "EPA"},
-      %{name: "Atlético União Forte", acronym: "AUF"},
+      %{name: "Atlético União Forte do Rio Grande do Sul", acronym: "AUF"},
       %{name: "Vanguarda Esportiva do Sul", acronym: "VES"}
     ],
     "RO" => [
@@ -408,8 +408,8 @@ defmodule FutMasterChampionship.Data.Teams do
       %{name: "Atlético Master Prime", acronym: "AMP"},
       %{name: "Clube Integração Forte", acronym: "CIF"},
       %{name: "Vanguarda Esportiva Sul", acronym: "VES"},
-      %{name: "Futebol Clube Nova Linha", acronym: "FCNL"},
-      %{name: "Esporte Clube Alto Desempenho", acronym: "ECAD"},
+      %{name: "Futebol Clube Nova Linha de Santa Catarina", acronym: "FCNL"},
+      %{name: "Esporte Clube Alto Desempenho de Santa Catarina", acronym: "ECAD"},
       %{name: "Atlético União Estrutural", acronym: "AUE"}
     ],
     "SP" => [
@@ -435,7 +435,7 @@ defmodule FutMasterChampionship.Data.Teams do
       %{name: "Esporte Clube Primeiro Norte", acronym: "ECPN"},
       %{name: "Atlético Forte do Leste", acronym: "AFL"},
       %{name: "Suprema Nacional Esportiva", acronym: "SNE"},
-      %{name: "Primeiro Clube Avante", acronym: "PCA"},
+      %{name: "Primeiro Clube Avante de Sergipe", acronym: "PCA"},
       %{name: "Grêmio União Máxima", acronym: "GUM"},
       %{name: "União Futuro Atlético", acronym: "UFA"},
       %{name: "Esporte Clube Linha Forte", acronym: "ECLF"},
