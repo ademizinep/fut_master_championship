@@ -1,4 +1,4 @@
-defmodule FutMasterChampionship.Repo.Migrations.PersonBelongsToTeam do
+defmodule FutMasterChampionship.Repo.Migrations.AddTeamIdToPeople do
   use Ecto.Migration
 
   def change do

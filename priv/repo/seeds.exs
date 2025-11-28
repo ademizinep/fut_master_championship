@@ -16,6 +16,8 @@ alias FutMasterChampionship.Sports.Team
 alias FutMasterChampionship.Countries.Country
 alias FutMasterChampionship.Countries.State
 alias FutMasterChampionship.Data.Teams
+alias FutMasterChampionship.Sports.League
+alias FutMasterChampionship.Sports.Championship
 
 countries = [
   { "Brasil", "BR" }
@@ -63,12 +65,72 @@ acronyms = Enum.map(states, fn { _, acronym, _ } -> acronym end)
 for state_acronym <- acronyms do
   teams = Teams.by_state(state_acronym)
   for %{name: name, acronym: acronym} <- teams do
-    IO.inspect(name)
-    IO.inspect(acronym)
-    Repo.insert!(%Team{name: name, acronym: acronym, state_id: Repo.get_by!(State, acronym: state_acronym).id})
+    Repo.insert!(%Team{name: name, acronym: acronym, state_id: Repo.get_by!(State, acronym: state_acronym).id, country_id: Repo.get_by!(Country, acronym: "BR").id})
   end
 end
 
 for i <- 1..10 do
   Repo.insert!(%Person{name: Faker.Person.name(), email: Faker.Internet.safe_email(), team_id: i})
+end
+
+leagues = [
+  { "Liga Nacional de Futebol", "national" },
+  { "Liga do Estado de Minas Gerais", "state" }
+]
+
+for { name, type } <- leagues do
+  case type do
+    "state" ->
+      Repo.insert!(%League{name: name, type: type, state_id: Repo.get_by!(State, acronym: "MG").id, country_id: Repo.get_by!(Country, acronym: "BR").id})
+    "national" ->
+      Repo.insert!(%League{name: name, type: type, country_id: Repo.get_by!(Country, acronym: "BR").id})
+  end
+end
+
+championships = [
+  { "Campeonato Brasileiro", "national", "BR", 2025, "Edição 2025", ~D[2025-01-01], ~D[2025-12-31] },
+  { "Campeonato Mineiro", "state", "MG", 2025, "Edição 2025", ~D[2025-01-01], ~D[2025-12-31] },
+  { "Copa Sul-Minas", "regional", "BR", 2025, "Edição 2025", ~D[2025-01-01], ~D[2025-12-31] },
+  { "Copa Rio-São Paulo", "regional", "BR", 2025, "Edição 2025", ~D[2025-01-01], ~D[2025-12-31] }
+]
+
+for { name, type, acronym, year, edition, start_date, end_date } <- championships do
+  case type do
+    "state" ->
+      Repo.insert!(
+        %Championship{
+          name: name,
+          type: type,
+          league_id: Repo.get_by!(League, name: "Liga do Estado de Minas Gerais").id,
+          year: year,
+          edition: edition,
+          start_date: start_date,
+          end_date: end_date
+        }
+      )
+    "regional" ->
+      Repo.insert!(
+        %Championship{
+          name: name,
+          type: type,
+          league_id: Repo.get_by!(League, name: "Liga Nacional de Futebol").id,
+          year: year,
+          edition: edition,
+          start_date: start_date,
+          end_date: end_date
+        }
+      )
+    "national" ->
+      Repo.insert!(
+        %Championship{
+          name: name,
+          type: type,
+          league_id: Repo.get_by!(League, name: "Liga Nacional de Futebol").id,
+          year: year,
+          edition: edition,
+          start_date: start_date,
+          end_date: end_date
+        }
+      )
+  end
 end
