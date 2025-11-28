@@ -2,6 +2,7 @@ defmodule FutMasterChampionship.Sports do
   import Ecto.Query, warn: false
   alias FutMasterChampionship.Repo
 
+  # Leagues
   alias FutMasterChampionship.Sports.League
 
   def list_leagues(type \\ nil, country_id \\ nil) do
@@ -15,8 +16,9 @@ defmodule FutMasterChampionship.Sports do
 
   alias FutMasterChampionship.Sports.Team
 
-  def list_teams do
+  def list_teams(country_id \\ nil) do
     Team
+    |> where(country_id: ^country_id)
     |> order_by(asc: :name)
     |> Repo.all()
   end

@@ -11,7 +11,6 @@ defmodule FutMasterChampionship.Sports.League do
     belongs_to :country, FutMasterChampionship.Countries.Country
     belongs_to :state, FutMasterChampionship.Countries.State
 
-    has_many :teams, FutMasterChampionship.Sports.Team
     has_many :championships, FutMasterChampionship.Sports.Championship
 
     timestamps(type: :utc_datetime)
