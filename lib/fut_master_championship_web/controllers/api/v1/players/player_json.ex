@@ -1,4 +1,4 @@
-defmodule FutMasterChampionshipWeb.PlayerJSON do
+defmodule FutMasterChampionshipWeb.V1.Players.PlayerJSON do
   alias FutMasterChampionship.Sports.Player
 
   def index(%{players: players}) do

@@ -1,4 +1,4 @@
-defmodule FutMasterChampionshipWeb.CountryController do
+defmodule FutMasterChampionshipWeb.V1.Countries.CountryController do
   use FutMasterChampionshipWeb, :controller
 
   alias FutMasterChampionship.Countries

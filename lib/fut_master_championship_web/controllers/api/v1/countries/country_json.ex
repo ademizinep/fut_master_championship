@@ -1,4 +1,4 @@
-defmodule FutMasterChampionshipWeb.CountryJSON do
+defmodule FutMasterChampionshipWeb.V1.Countries.CountryJSON do
   alias FutMasterChampionship.Countries.Country
 
   def index(%{countries: countries}) do
