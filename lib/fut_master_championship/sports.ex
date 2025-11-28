@@ -2,25 +2,16 @@ defmodule FutMasterChampionship.Sports do
   import Ecto.Query, warn: false
   alias FutMasterChampionship.Repo
 
-  alias FutMasterChampionship.Sports.NationalLeague
+  alias FutMasterChampionship.Sports.League
 
-  def list_national_leagues do
-    NationalLeague
+  def list_leagues(type \\ nil, country_id \\ nil) do
+    League
+    |> where(type: ^type, country_id: ^country_id)
     |> order_by(asc: :name)
     |> Repo.all()
   end
 
-  def get_national_league!(id), do: Repo.get!(NationalLeague, id)
-
-  alias FutMasterChampionship.Sports.StateLeague
-
-  def list_state_leagues do
-    StateLeague
-    |> order_by(asc: :name)
-    |> Repo.all()
-  end
-
-  def get_state_league!(id), do: Repo.get!(StateLeague, id)
+  def get_league!(id), do: Repo.get!(League, id)
 
   alias FutMasterChampionship.Sports.Team
 
@@ -33,64 +24,34 @@ defmodule FutMasterChampionship.Sports do
   def get_team!(id), do: Repo.get!(Team, id)
 
   #National Championships
-  alias FutMasterChampionship.Sports.NationalChampionship
+  alias FutMasterChampionship.Sports.Championship
 
-  def list_national_championships do
-    NationalChampionship
+  def list_championships(type, league_id) do
+    Championship
+    |> where(type: ^type, league_id: ^league_id)
     |> order_by(asc: :name)
     |> Repo.all()
   end
 
-  def get_national_championship!(id), do: Repo.get!(NationalChampionship, id)
+  def get_championship!(id), do: Repo.get!(Championship, id)
 
-  def create_national_championship(attrs) do
-    %NationalChampionship{}
-    |> NationalChampionship.changeset(attrs)
+  def create_championship(attrs) do
+    %Championship{}
+    |> Championship.changeset(attrs)
     |> Repo.insert()
   end
 
-  def update_national_championship(%NationalChampionship{} = national_championship, attrs) do
-    national_championship
-    |> NationalChampionship.changeset(attrs)
+  def update_championship(%Championship{} = championship, attrs) do
+    championship
+    |> Championship.changeset(attrs)
     |> Repo.update()
   end
 
-  def delete_national_championship(%NationalChampionship{} = national_championship) do
-    Repo.delete(national_championship)
+  def delete_championship(%Championship{} = championship) do
+    Repo.delete(championship)
   end
 
-  def change_national_championship(%NationalChampionship{} = national_championship, attrs \\ %{}) do
-    NationalChampionship.changeset(national_championship, attrs)
-  end
-
-  #State Championships
-  alias FutMasterChampionship.Sports.StateChampionship
-
-  def list_state_championships do
-    StateChampionship
-    |> order_by(asc: :name)
-    |> Repo.all()
-  end
-
-  def get_state_championship!(id), do: Repo.get!(StateChampionship, id)
-
-  def create_state_championship(attrs) do
-    %StateChampionship{}
-    |> StateChampionship.changeset(attrs)
-    |> Repo.insert()
-  end
-
-  def update_state_championship(%StateChampionship{} = state_championship, attrs) do
-    state_championship
-    |> StateChampionship.changeset(attrs)
-    |> Repo.update()
-  end
-
-  def delete_state_championship(%StateChampionship{} = state_championship) do
-    Repo.delete(state_championship)
-  end
-
-  def change_state_championship(%StateChampionship{} = state_championship, attrs \\ %{}) do
-    StateChampionship.changeset(state_championship, attrs)
+  def change_championship(%Championship{} = championship, attrs \\ %{}) do
+    Championship.changeset(championship, attrs)
   end
 end

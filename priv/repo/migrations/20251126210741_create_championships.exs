@@ -4,13 +4,14 @@ defmodule FutMasterChampionship.Repo.Migrations.CreateNationalChampionships do
   def change do
     create table(:national_championships) do
       add :name, :string
+      add :type, :string
       add :edition, :string
       add :year, :integer
       add :start_date, :date
       add :end_date, :date
       add :active, :boolean, default: false, null: false
 
-      add :country_id, references(:countries, on_delete: :nothing)
+      add :league_id, references(:leagues, on_delete: :restrict)
 
       timestamps(type: :utc_datetime)
     end

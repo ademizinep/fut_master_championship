@@ -7,12 +7,13 @@ defmodule FutMasterChampionship.Sports.Team do
     field :acronym, :string
 
     has_many :people, FutMasterChampionship.People.Person
-    belongs_to :state, FutMasterChampionship.States.State
+    belongs_to :state, FutMasterChampionship.Countries.State
+    belongs_to :country, FutMasterChampionship.Countries.Country
+    belongs_to :league, FutMasterChampionship.Sports.League
 
     timestamps(type: :utc_datetime)
   end
 
-  @doc false
   def changeset(team, attrs) do
     team
     |> cast(attrs, [:name, :acronym, :state_id])
