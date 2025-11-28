@@ -69,4 +69,18 @@ defmodule FutMasterChampionship.SportsFixtures do
 
     state_championship
   end
+
+  @doc """
+  Generate a player.
+  """
+  def player_fixture(attrs \\ %{}) do
+    {:ok, player} =
+      attrs
+      |> Enum.into(%{
+        name: "some name"
+      })
+      |> FutMasterChampionship.Sports.create_player()
+
+    player
+  end
 end

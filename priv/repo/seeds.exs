@@ -18,6 +18,7 @@ alias FutMasterChampionship.Countries.State
 alias FutMasterChampionship.Data.Teams
 alias FutMasterChampionship.Sports.League
 alias FutMasterChampionship.Sports.Championship
+alias FutMasterChampionship.Sports.Player
 
 countries = [
   { "Brasil", "BR" }
@@ -65,7 +66,10 @@ acronyms = Enum.map(states, fn { _, acronym, _ } -> acronym end)
 for state_acronym <- acronyms do
   teams = Teams.by_state(state_acronym)
   for %{name: name, acronym: acronym} <- teams do
-    Repo.insert!(%Team{name: name, acronym: acronym, state_id: Repo.get_by!(State, acronym: state_acronym).id, country_id: Repo.get_by!(Country, acronym: "BR").id})
+    team = Repo.insert!(%Team{name: name, acronym: acronym, state_id: Repo.get_by!(State, acronym: state_acronym).id, country_id: Repo.get_by!(Country, acronym: "BR").id})
+    for i <- 1..30 do
+      Repo.insert!(%Player{name: Faker.Person.name(), age: Enum.random(18..40), team_id: team.id})
+    end
   end
 end
 

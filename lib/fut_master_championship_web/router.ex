@@ -14,6 +14,7 @@ defmodule FutMasterChampionshipWeb.Router do
     resources "/states", StateController, only: [:index, :show]
     resources "/leagues", LeagueController, only: [:index, :show]
     resources "/championships", ChampionshipController, only: [:index, :show]
+    resources "/players", PlayerController, only: [:index, :show]
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
