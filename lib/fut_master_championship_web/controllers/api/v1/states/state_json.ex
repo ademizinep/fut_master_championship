@@ -1,5 +1,5 @@
 defmodule FutMasterChampionshipWeb.V1.States.StateJSON do
-  alias FutMasterChampionship.Countries.State
+  alias FutMasterChampionship.Locations.State
 
   def index(%{states: states}) do
     %{data: for(state <- states, do: data(state))}

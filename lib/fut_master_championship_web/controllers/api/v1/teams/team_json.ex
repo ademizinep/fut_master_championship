@@ -12,7 +12,8 @@ defmodule FutMasterChampionshipWeb.V1.Teams.TeamJSON do
   defp data(%Team{} = team) do
     %{
       id: team.id,
-      name: team.name
+      name: team.name,
+      acronym: team.acronym
     }
   end
 end

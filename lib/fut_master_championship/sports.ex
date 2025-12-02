@@ -16,11 +16,19 @@ defmodule FutMasterChampionship.Sports do
 
   alias FutMasterChampionship.Sports.Team
 
-  def list_teams(country_id \\ nil) do
+  def list_teams(country_id, state_id \\ nil) do
     Team
-    |> where(country_id: ^country_id)
+    |> list_teams_query(country_id, state_id)
     |> order_by(asc: :name)
     |> Repo.all()
+  end
+
+  defp list_teams_query(query, country_id, nil) do
+    where(query, country_id: ^country_id)
+  end
+
+  defp list_teams_query(query, country_id, state_id) do
+    where(query, country_id: ^country_id, state_id: ^state_id)
   end
 
   def get_team!(id), do: Repo.get!(Team, id)
@@ -95,4 +103,16 @@ defmodule FutMasterChampionship.Sports do
   def change_player(%Player{} = player, attrs \\ %{}) do
     Player.changeset(player, attrs)
   end
+
+  # Championship Divisions
+  alias FutMasterChampionship.Sports.ChampionshipDivision
+
+  def list_championship_divisions(championship_id) do
+    ChampionshipDivision
+    |> where(championship_id: ^championship_id)
+    |> order_by(asc: :name)
+    |> Repo.all()
+  end
+
+  def get_championship_division!(id), do: Repo.get!(ChampionshipDivision, id)
 end

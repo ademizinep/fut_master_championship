@@ -1,4 +1,4 @@
-defmodule FutMasterChampionship.Countries.Country do
+defmodule FutMasterChampionship.Locations.Country do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -9,7 +9,6 @@ defmodule FutMasterChampionship.Countries.Country do
     timestamps(type: :utc_datetime)
   end
 
-  @doc false
   def changeset(country, attrs) do
     country
     |> cast(attrs, [:name, :acronym])

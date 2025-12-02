@@ -83,4 +83,18 @@ defmodule FutMasterChampionship.SportsFixtures do
 
     player
   end
+
+  @doc """
+  Generate a championship_division.
+  """
+  def championship_division_fixture(attrs \\ %{}) do
+    {:ok, championship_division} =
+      attrs
+      |> Enum.into(%{
+        name: "some name"
+      })
+      |> FutMasterChampionship.Sports.create_championship_division()
+
+    championship_division
+  end
 end

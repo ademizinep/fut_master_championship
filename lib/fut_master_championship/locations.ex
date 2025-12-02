@@ -1,8 +1,8 @@
-defmodule FutMasterChampionship.Countries do
+defmodule FutMasterChampionship.Locations do
   import Ecto.Query, warn: false
   alias FutMasterChampionship.Repo
 
-  alias FutMasterChampionship.Countries.Country
+  alias FutMasterChampionship.Locations.Country
 
   def list_countries do
     Repo.all(Country)
@@ -10,7 +10,7 @@ defmodule FutMasterChampionship.Countries do
 
   def get_country!(id), do: Repo.get!(Country, id)
 
-  alias FutMasterChampionship.Countries.State
+  alias FutMasterChampionship.Locations.State
 
   def list_states(country_id) do
     State

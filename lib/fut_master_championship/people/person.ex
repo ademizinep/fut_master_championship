@@ -11,7 +11,6 @@ defmodule FutMasterChampionship.People.Person do
     timestamps(type: :utc_datetime)
   end
 
-  @doc false
   def changeset(person, attrs) do
     person
     |> cast(attrs, [:name, :email])

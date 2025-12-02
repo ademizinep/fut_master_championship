@@ -13,13 +13,14 @@
 alias FutMasterChampionship.Repo
 alias FutMasterChampionship.People.Person
 alias FutMasterChampionship.Sports.Team
-alias FutMasterChampionship.Countries.Country
-alias FutMasterChampionship.Countries.State
+alias FutMasterChampionship.Locations.Country
+alias FutMasterChampionship.Locations.State
 alias FutMasterChampionship.Data.Teams
 alias FutMasterChampionship.Sports.League
 alias FutMasterChampionship.Sports.Championship
 alias FutMasterChampionship.Sports.Player
 
+# Countries
 countries = [
   { "Brasil", "BR" }
 ]
@@ -28,6 +29,7 @@ for { name, acronym } <- countries do
   Repo.insert!(%Country{name: name, acronym: acronym})
 end
 
+# States
 states = [
   { "Acre", "AC", "Região Norte" },
   { "Alagoas", "AL", "Região Nordeste" },
@@ -62,6 +64,7 @@ for { name, acronym, region} <- states do
   Repo.insert!(%State{name: name, acronym: acronym, region: region, country_id: 1})
 end
 
+# Teams
 acronyms = Enum.map(states, fn { _, acronym, _ } -> acronym end)
 for state_acronym <- acronyms do
   teams = Teams.by_state(state_acronym)
@@ -73,10 +76,12 @@ for state_acronym <- acronyms do
   end
 end
 
+# People
 for i <- 1..10 do
-  Repo.insert!(%Person{name: Faker.Person.name(), email: Faker.Internet.safe_email(), team_id: i})
+  Repo.insert!(%Person{name: Faker.Person.name(), email: Faker.Internet.safe_email()})
 end
 
+# Leagues
 leagues = [
   { "Liga Nacional de Futebol", "national" },
   { "Liga do Estado de Minas Gerais", "state" }
@@ -91,6 +96,7 @@ for { name, type } <- leagues do
   end
 end
 
+# Championships
 championships = [
   { "Campeonato Brasileiro", "national", "BR", 2025, "Edição 2025", ~D[2025-01-01], ~D[2025-12-31] },
   { "Campeonato Mineiro", "state", "MG", 2025, "Edição 2025", ~D[2025-01-01], ~D[2025-12-31] },

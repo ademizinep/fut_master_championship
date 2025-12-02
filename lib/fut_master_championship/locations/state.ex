@@ -1,4 +1,4 @@
-defmodule FutMasterChampionship.Countries.State do
+defmodule FutMasterChampionship.Locations.State do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -7,16 +7,15 @@ defmodule FutMasterChampionship.Countries.State do
     field :acronym, :string
     field :region, :string
 
-    belongs_to :country, FutMasterChampionship.Countries.Country
+    belongs_to :country, FutMasterChampionship.Locations.Country
 
     timestamps(type: :utc_datetime)
   end
 
-  @doc false
   def changeset(state, attrs) do
     state
     |> cast(attrs, [:name, :acronym, :region, :country_id])
     |> validate_required([:name, :acronym, :region, :country_id])
-    |> validate_inclusion(:country_id, FutMasterChampionship.Countries.list_countries())
+    |> validate_inclusion(:country_id, FutMasterChampionship.Locations.list_countries())
   end
 end
