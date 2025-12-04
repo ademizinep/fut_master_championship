@@ -1,12 +1,12 @@
-defmodule FutMasterChampionshipWeb.StateController do
+defmodule FutMasterChampionshipWeb.V1.States.StateController do
   use FutMasterChampionshipWeb, :controller
 
-  alias FutMasterChampionship.Countries
+  alias FutMasterChampionship.Locations
 
   action_fallback FutMasterChampionshipWeb.FallbackController
 
   def index(conn, %{"country_id" => country_id}) do
-    states = Countries.list_states(country_id)
+    states = Locations.list_states(country_id)
     render(conn, :index, states: states)
   end
 
@@ -16,7 +16,7 @@ defmodule FutMasterChampionshipWeb.StateController do
   end
 
   def show(conn, %{"id" => id}) do
-    state = Countries.get_state!(id)
+    state = Locations.get_state!(id)
     render(conn, :show, state: state)
   end
 end

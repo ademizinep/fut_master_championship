@@ -1,4 +1,4 @@
-defmodule FutMasterChampionshipWeb.LeagueController do
+defmodule FutMasterChampionshipWeb.V1.Leagues.LeagueController do
   use FutMasterChampionshipWeb, :controller
 
   alias FutMasterChampionship.Sports

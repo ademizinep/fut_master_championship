@@ -1,4 +1,4 @@
-defmodule FutMasterChampionshipWeb.PersonController do
+defmodule FutMasterChampionshipWeb.V1.People.PersonController do
   use FutMasterChampionshipWeb, :controller
 
   alias FutMasterChampionship.People
@@ -15,7 +15,7 @@ defmodule FutMasterChampionshipWeb.PersonController do
     with {:ok, %Person{} = person} <- People.create_person(person_params) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", ~p"/api/people/#{person}")
+      |> put_resp_header("location", ~p"/api/v1/people/#{person}")
       |> render(:show, person: person)
     end
   end

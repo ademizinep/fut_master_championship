@@ -4,7 +4,7 @@ defmodule FutMasterChampionship.Sports.Championship do
 
   @types ["national", "state", "regional"]
 
-  schema "national_championships" do
+  schema "championships" do
     field :name, :string
     field :type, :string
     field :edition, :string
@@ -18,8 +18,8 @@ defmodule FutMasterChampionship.Sports.Championship do
     timestamps(type: :utc_datetime)
   end
 
-  def changeset(national_championship, attrs) do
-    national_championship
+  def changeset(championship, attrs) do
+    championship
     |> cast(attrs, [:name, :type, :edition, :year, :start_date, :end_date, :active, :country_id, :state_id, :league_id])
     |> validate_required([:name, :type, :edition, :year, :start_date, :end_date, :active, :country_id, :league_id])
     |> validate_inclusion(:type, @types)

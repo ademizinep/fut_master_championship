@@ -5,15 +5,17 @@ defmodule FutMasterChampionshipWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", FutMasterChampionshipWeb do
+  scope "/api/v1", FutMasterChampionshipWeb.V1 do
     pipe_through :api
 
-    resources "/people", PersonController, except: [:new, :edit]
-    resources "/teams", TeamController, only: [:index, :show]
-    resources "/countries", CountryController, only: [:index, :show]
-    resources "/states", StateController, only: [:index, :show]
-    resources "/leagues", LeagueController, only: [:index, :show]
-    resources "/championships", ChampionshipController, only: [:index, :show]
+    resources "/people", People.PersonController, except: [:new, :edit]
+    resources "/teams", Teams.TeamController, only: [:index, :show]
+    resources "/countries", Countries.CountryController, only: [:index, :show]
+    resources "/states", States.StateController, only: [:index, :show]
+    resources "/leagues", Leagues.LeagueController, only: [:index, :show]
+    resources "/championships", Championships.ChampionshipController, only: [:index, :show]
+    resources "/players", Players.PlayerController, only: [:index, :show]
+    resources "/championship_divisions", ChampionshipDivisions.ChampionshipDivisionController, only: [:index, :show]
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

@@ -8,8 +8,8 @@ defmodule FutMasterChampionship.Sports.League do
     field :name, :string
     field :type, :string
 
-    belongs_to :country, FutMasterChampionship.Countries.Country
-    belongs_to :state, FutMasterChampionship.Countries.State
+    belongs_to :country, FutMasterChampionship.Locations.Country
+    belongs_to :state, FutMasterChampionship.Locations.State
 
     has_many :championships, FutMasterChampionship.Sports.Championship
 

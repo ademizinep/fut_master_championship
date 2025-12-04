@@ -238,4 +238,112 @@ defmodule FutMasterChampionship.SportsTest do
       assert %Ecto.Changeset{} = Sports.change_state_championship(state_championship)
     end
   end
+
+  describe "players" do
+    alias FutMasterChampionship.Sports.Player
+
+    import FutMasterChampionship.SportsFixtures
+
+    @invalid_attrs %{name: nil}
+
+    test "list_players/0 returns all players" do
+      player = player_fixture()
+      assert Sports.list_players() == [player]
+    end
+
+    test "get_player!/1 returns the player with given id" do
+      player = player_fixture()
+      assert Sports.get_player!(player.id) == player
+    end
+
+    test "create_player/1 with valid data creates a player" do
+      valid_attrs = %{name: "some name"}
+
+      assert {:ok, %Player{} = player} = Sports.create_player(valid_attrs)
+      assert player.name == "some name"
+    end
+
+    test "create_player/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Sports.create_player(@invalid_attrs)
+    end
+
+    test "update_player/2 with valid data updates the player" do
+      player = player_fixture()
+      update_attrs = %{name: "some updated name"}
+
+      assert {:ok, %Player{} = player} = Sports.update_player(player, update_attrs)
+      assert player.name == "some updated name"
+    end
+
+    test "update_player/2 with invalid data returns error changeset" do
+      player = player_fixture()
+      assert {:error, %Ecto.Changeset{}} = Sports.update_player(player, @invalid_attrs)
+      assert player == Sports.get_player!(player.id)
+    end
+
+    test "delete_player/1 deletes the player" do
+      player = player_fixture()
+      assert {:ok, %Player{}} = Sports.delete_player(player)
+      assert_raise Ecto.NoResultsError, fn -> Sports.get_player!(player.id) end
+    end
+
+    test "change_player/1 returns a player changeset" do
+      player = player_fixture()
+      assert %Ecto.Changeset{} = Sports.change_player(player)
+    end
+  end
+
+  describe "championship_divisions" do
+    alias FutMasterChampionship.Sports.ChampionshipDivision
+
+    import FutMasterChampionship.SportsFixtures
+
+    @invalid_attrs %{name: nil}
+
+    test "list_championship_divisions/0 returns all championship_divisions" do
+      championship_division = championship_division_fixture()
+      assert Sports.list_championship_divisions() == [championship_division]
+    end
+
+    test "get_championship_division!/1 returns the championship_division with given id" do
+      championship_division = championship_division_fixture()
+      assert Sports.get_championship_division!(championship_division.id) == championship_division
+    end
+
+    test "create_championship_division/1 with valid data creates a championship_division" do
+      valid_attrs = %{name: "some name"}
+
+      assert {:ok, %ChampionshipDivision{} = championship_division} = Sports.create_championship_division(valid_attrs)
+      assert championship_division.name == "some name"
+    end
+
+    test "create_championship_division/1 with invalid data returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Sports.create_championship_division(@invalid_attrs)
+    end
+
+    test "update_championship_division/2 with valid data updates the championship_division" do
+      championship_division = championship_division_fixture()
+      update_attrs = %{name: "some updated name"}
+
+      assert {:ok, %ChampionshipDivision{} = championship_division} = Sports.update_championship_division(championship_division, update_attrs)
+      assert championship_division.name == "some updated name"
+    end
+
+    test "update_championship_division/2 with invalid data returns error changeset" do
+      championship_division = championship_division_fixture()
+      assert {:error, %Ecto.Changeset{}} = Sports.update_championship_division(championship_division, @invalid_attrs)
+      assert championship_division == Sports.get_championship_division!(championship_division.id)
+    end
+
+    test "delete_championship_division/1 deletes the championship_division" do
+      championship_division = championship_division_fixture()
+      assert {:ok, %ChampionshipDivision{}} = Sports.delete_championship_division(championship_division)
+      assert_raise Ecto.NoResultsError, fn -> Sports.get_championship_division!(championship_division.id) end
+    end
+
+    test "change_championship_division/1 returns a championship_division changeset" do
+      championship_division = championship_division_fixture()
+      assert %Ecto.Changeset{} = Sports.change_championship_division(championship_division)
+    end
+  end
 end

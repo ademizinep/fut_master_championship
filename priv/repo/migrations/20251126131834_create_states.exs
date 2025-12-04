@@ -6,6 +6,7 @@ defmodule FutMasterChampionship.Repo.Migrations.CreateStates do
       add :name, :string
       add :acronym, :string
       add :region, :string
+      add :demonym, :string
 
       add :country_id, references(:countries, on_delete: :restrict)
 

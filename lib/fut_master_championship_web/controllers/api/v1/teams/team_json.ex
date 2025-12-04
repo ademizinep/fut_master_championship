@@ -1,4 +1,4 @@
-defmodule FutMasterChampionshipWeb.TeamJSON do
+defmodule FutMasterChampionshipWeb.V1.Teams.TeamJSON do
   alias FutMasterChampionship.Sports.Team
 
   def index(%{teams: teams}) do
@@ -12,7 +12,8 @@ defmodule FutMasterChampionshipWeb.TeamJSON do
   defp data(%Team{} = team) do
     %{
       id: team.id,
-      name: team.name
+      name: team.name,
+      acronym: team.acronym
     }
   end
 end
