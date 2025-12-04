@@ -113,6 +113,51 @@ defmodule FutMasterChampionship.Sports do
     |> order_by(asc: :name)
     |> Repo.all()
   end
-
   def get_championship_division!(id), do: Repo.get!(ChampionshipDivision, id)
+
+  alias FutMasterChampionship.Sports.ChampionshipDiviseTeam
+
+  def add_team_to_division(team_id, division_id, attrs \\ %{}) do
+    attrs = Map.merge(attrs, %{
+      team_id: team_id,
+      championship_division_id: division_id,
+      joined_at: attrs[:joined_at] || Date.utc_today()
+    })
+
+    %ChampionshipDiviseTeam{}
+    |> ChampionshipDiviseTeam.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def remove_team_from_division(team_id, division_id) do
+    ChampionshipTeam
+    |> where([ct], ct.team_id == ^team_id and ct.championship_division_id == ^division_id)
+    |> Repo.one()
+    |> case do
+      nil -> {:error, :not_found}
+      championship_team -> Repo.delete(championship_team)
+    end
+  end
+
+  def list_division_teams(division_id) do
+    ChampionshipDiviseTeam
+    |> where([ct], ct.championship_division_id == ^division_id)
+    |> order_by([ct], desc: :points, desc: :wins, desc: fragment("goals_for - goals_against"))
+    |> preload(:team)
+    |> Repo.all()
+  end
+
+  def list_division_teams_simple(division_id) do
+    ChampionshipDiviseTeam
+    |> Repo.get!(division_id)
+    |> Repo.preload(:teams)
+    |> Map.get(:teams)
+  end
+
+  def list_team_divisions(team_id) do
+    Team
+    |> Repo.get!(team_id)
+    |> Repo.preload(:championship_divisions)
+    |> Map.get(:championship_divisions)
+  end
 end

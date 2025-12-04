@@ -6,6 +6,7 @@ defmodule FutMasterChampionship.Locations.State do
     field :name, :string
     field :acronym, :string
     field :region, :string
+    field :demonym, :string
 
     belongs_to :country, FutMasterChampionship.Locations.Country
 

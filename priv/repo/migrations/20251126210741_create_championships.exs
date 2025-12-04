@@ -1,8 +1,8 @@
-defmodule FutMasterChampionship.Repo.Migrations.CreateNationalChampionships do
+defmodule FutMasterChampionship.Repo.Migrations.CreateChampionships do
   use Ecto.Migration
 
   def change do
-    create table(:national_championships) do
+    create table(:championships) do
       add :name, :string
       add :type, :string
       add :edition, :string

@@ -1,8 +1,4 @@
 defmodule FutMasterChampionship.Data.Teams do
-  @moduledoc """
-  Dados estáticos dos times de futebol organizados por estado.
-  """
-
   @teams %{
     "AC" => [
       %{name: "Aurora Atlético Clube", acronym: "AAC"},

@@ -1,9 +1,13 @@
+import Ecto.Query
+
 alias FutMasterChampionship.Repo
 
-alias FutMasterChampionship.Sports.{League, Championship, Player, Team}
+alias FutMasterChampionship.Sports.{League, Championship, Player, Team, ChampionshipDiviseTeam, ChampionshipDivision}
 
-alias FutMasterChampionship.Countries.{Country, State}
+alias FutMasterChampionship.Locations.{Country, State}
 
 alias FutMasterChampionship.People.Person
 
-alias FutMasterChampionship.Data.Teams
+alias FutMasterChampionship.Data.Teams, as: TeamsData
+
+alias FutMasterChampionship.Data.States, as: StatesData
