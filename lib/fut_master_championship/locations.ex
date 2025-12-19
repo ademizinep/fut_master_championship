@@ -4,6 +4,12 @@ defmodule FutMasterChampionship.Locations do
 
   alias FutMasterChampionship.Locations.Country
 
+  def create_country(attrs) do
+    %Country{}
+    |> Country.changeset(attrs)
+    |> Repo.insert()
+  end
+
   def list_countries do
     Repo.all(Country)
   end
@@ -11,6 +17,12 @@ defmodule FutMasterChampionship.Locations do
   def get_country!(id), do: Repo.get!(Country, id)
 
   alias FutMasterChampionship.Locations.State
+
+  def create_state(attrs) do
+    %State{}
+    |> State.changeset(attrs)
+    |> Repo.insert()
+  end
 
   def list_states(country_id) do
     State

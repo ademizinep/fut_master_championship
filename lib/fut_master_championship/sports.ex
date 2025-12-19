@@ -5,6 +5,12 @@ defmodule FutMasterChampionship.Sports do
   # Leagues
   alias FutMasterChampionship.Sports.League
 
+  def create_league(attrs) do
+    %League{}
+    |> League.changeset(attrs)
+    |> Repo.insert()
+  end
+
   def list_leagues(type \\ nil, country_id \\ nil) do
     League
     |> where(type: ^type, country_id: ^country_id)
@@ -14,7 +20,15 @@ defmodule FutMasterChampionship.Sports do
 
   def get_league!(id), do: Repo.get!(League, id)
 
+
+  # Teams
   alias FutMasterChampionship.Sports.Team
+
+  def create_team(attrs) do
+    %Team{}
+    |> Team.changeset(attrs)
+    |> Repo.insert()
+  end
 
   def list_teams(country_id, state_id \\ nil) do
     Team
@@ -68,6 +82,18 @@ defmodule FutMasterChampionship.Sports do
   # Players
   alias FutMasterChampionship.Sports.Player
 
+  def create_player(attrs) do
+    %Player{}
+    |> Player.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def update_player(%Player{} = player, attrs) do
+    player
+    |> Player.changeset(attrs)
+    |> Repo.update()
+  end
+
   def list_players(team_id) do
     Player
     |> where(team_id: ^team_id)
@@ -84,18 +110,6 @@ defmodule FutMasterChampionship.Sports do
 
   def get_player!(id), do: Repo.get!(Player, id)
 
-  def create_player(attrs) do
-    %Player{}
-    |> Player.changeset(attrs)
-    |> Repo.insert()
-  end
-
-  def update_player(%Player{} = player, attrs) do
-    player
-    |> Player.changeset(attrs)
-    |> Repo.update()
-  end
-
   def delete_player(%Player{} = player) do
     Repo.delete(player)
   end
@@ -106,6 +120,12 @@ defmodule FutMasterChampionship.Sports do
 
   # Championship Divisions
   alias FutMasterChampionship.Sports.ChampionshipDivision
+
+  def create_championship_division(attrs) do
+    %ChampionshipDivision{}
+    |> ChampionshipDivision.changeset(attrs)
+    |> Repo.insert()
+  end
 
   def list_championship_divisions(championship_id) do
     ChampionshipDivision

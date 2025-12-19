@@ -17,6 +17,7 @@ defmodule FutMasterChampionship.Locations.State do
     state
     |> cast(attrs, [:name, :acronym, :region, :country_id])
     |> validate_required([:name, :acronym, :region, :country_id])
-    |> validate_inclusion(:country_id, FutMasterChampionship.Locations.list_countries())
+    |> foreign_key_constraint(:country_id)
+    |> assoc_constraint(:country)
   end
 end

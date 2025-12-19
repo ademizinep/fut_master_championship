@@ -6,10 +6,10 @@ defmodule FutMasterChampionship.Repo.Migrations.CreateTeams do
       add :name, :string
       add :acronym, :string
       add :founded_date, :date
-      add :shild_type, :string
-      add :primary_color, :string, size: 7
-      add :secondary_color, :string, size: 7
-      add :tertiary_color, :string, size: 7
+      add :shield_type, :string
+      add :primary_color, :string
+      add :secondary_color, :string
+      add :tertiary_color, :string
       add :description, :text
 
       timestamps(type: :utc_datetime)
